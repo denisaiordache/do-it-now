@@ -4,11 +4,19 @@ import { connect } from 'react-redux';
 
 class Dashboard extends Component {
   render() {
+    const {tasks} = this.props
     return (
       <div className="dashboard-container">
-        <TaskList />
+        <TaskList tasks = {tasks}/>
       </div>
     );
   }
 }
-export default Dashboard;
+
+const mapStateToProps = (state) => {
+  return {
+    tasks: state.task.tasks
+}
+}
+
+export default connect(mapStateToProps)(Dashboard);

@@ -1,12 +1,15 @@
 import React from "react";
 import TaskDescription from "./TaskDescription";
 
-const TaskList = () => {
+const TaskList = ({tasks}) => {
   return (
     <div className="task-list">
-      <TaskDescription />
-      <TaskDescription />
-      <TaskDescription />
+      {tasks && tasks.map(task => {
+        return (
+          <TaskDescription task={task} key={task.id} />
+        )
+      }
+      )}
     </div>
   );
 };

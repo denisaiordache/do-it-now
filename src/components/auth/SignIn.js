@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 
+
 class SignIn extends Component{
     state = {
         email:'',
@@ -17,6 +18,8 @@ class SignIn extends Component{
     handleSubmit = (e) => {
         e.preventDefault(); //check if form was submited beflore
         console.log(this.state);
+        //this.props.signIn(this.state);
+
     }
 
     render(){
@@ -50,4 +53,6 @@ class SignIn extends Component{
     }
     
 }
+
+
 export default SignIn;

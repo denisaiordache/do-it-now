@@ -1,23 +1,20 @@
 import React from "react";
 
-const TaskDescription = () => {
+const TaskDescription = ({task}) => {
   return (
     <div className="row">
       <div className="col s4">
         <div className="card">
           <div className="card-image">
             <img src="/images/bulb.jpg" />
-            <span className="card-title">Finish React Project</span>
+            <span className="card-title">{task.title}</span>
           </div>
           <div className="card-content">
             <p>
-              {" "}
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam
-              rem mollitia facere sapiente inventore? Repellendus doloremque
-              cumque libero unde quaerat.{" "}
+              {task.content}
             </p>
             <div>
-              <i className="material-icons">alarm</i> 24th of January, 2pm
+              <i className="material-icons">alarm</i> {task.deadline}
             </div>
           </div>
         </div>
