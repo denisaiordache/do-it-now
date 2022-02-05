@@ -5,8 +5,8 @@ import { getAuth } from "firebase/auth";
 import { doc, getDoc } from "firebase/firestore";
 import { db } from "../../config/firebase-config";
 
-const auth = getAuth();
-const user = auth.currentUser;
+// const auth = getAuth();
+// const user = auth.currentUser;
 
 // if(user !== null)
 // {
@@ -37,7 +37,7 @@ const OnlineLinks = () => {
           to="/"
           className="btn-floating btn-large waves-effect waves-light teal lighten-3"
         >
-          {user.uid}
+          DI
         </NavLink>
       </li>
     </ul>
