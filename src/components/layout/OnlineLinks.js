@@ -1,29 +1,39 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { logout } from "../../config/firebase-config";
+import { useNavigate } from "react-router-dom";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { getAuth } from "firebase/auth";
-import { doc, getDoc } from "firebase/firestore";
+import { useEffect } from "react";
+import { collection, getDocs, query, where } from "firebase/firestore";
+import { useState } from "react";
 import { db } from "../../config/firebase-config";
 
-// const auth = getAuth();
-// const user = auth.currentUser;
-
-// if(user !== null)
-// {
-//   const docRef = doc(db, "users",user.uid);
-//   const docSnap = getDoc(docRef);
-//   if (docSnap.exists()) {
-//     console.log("Document data:", docSnap.data());
-//   } else {
-//     // doc.data() will be undefined in this case
-//     console.log("No such document!");
-//   }
-// }
-
-
-
+const auth = getAuth();
 
 const OnlineLinks = () => {
+  const history = useNavigate();
+  const [user, loading, error] = useAuthState(auth);
+  const [initials,setInitials] = useState(""); 
+  const fetchUsername = async () =>{
+    try{
+      const q = query(collection(db,'users'),where("uid","==",user?.uid));
+      const doc = await getDocs(q);
+      const data = doc.docs[0].data();
+      setInitials(data.firstName[0] + data.lastName[0]);
+    }
+    catch(err)
+    {
+      console.error(err);
+    }
+
+  } 
+
+  useEffect(() => {
+  if (loading) return;
+  if (!user) return history("/");
+  fetchUsername();
+}, [user, loading]);
   return (
     <ul className="right hide-on-med-and-down">
       <li>
@@ -37,7 +47,7 @@ const OnlineLinks = () => {
           to="/"
           className="btn-floating btn-large waves-effect waves-light teal lighten-3"
         >
-          DI
+          {initials}
         </NavLink>
       </li>
     </ul>

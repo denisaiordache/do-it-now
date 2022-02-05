@@ -10,27 +10,7 @@ import { useEffect } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useNavigate } from "react-router-dom";
 
-
-
 const auth = getAuth();
-// const user = auth.currentUser;
-
-// const x = onAuthStateChanged (auth, (user) => {
-//   if (user) {
-//     // User is signed in, see docs for a list of available properties
-//     // https://firebase.google.com/docs/reference/js/firebase.User
-//    console.log(user);
-//    return user;
-//     // ...
-//   } else {
-//     // User is signed out
-//     // ...
-//     return null;
-//     console.log("log out user");
-//   }
-// });
-
-
 
 
 const Navbar = () => {
