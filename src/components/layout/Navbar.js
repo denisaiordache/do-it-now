@@ -3,6 +3,12 @@ import { Link } from "react-router-dom";
 import OnlineLinks from "./OnlineLinks";
 import OfflineLinks from "./OfflineLinks";
 import { connect } from "react-redux";
+import { getAuth } from "firebase/auth";
+import { auth } from "../../config/firebase-config";
+
+const user = auth.currentUser;
+console.log(user);
+
 
 const Navbar = () => {
   return (
@@ -11,8 +17,17 @@ const Navbar = () => {
         <Link to="/" className="brand-logo">
           DoItNow
         </Link>
-        <OnlineLinks />
-        <OfflineLinks />
+        { user !== null ?
+        (
+         <OnlineLinks />
+        )
+        :
+        (
+           <OfflineLinks />
+        )
+        } 
+        
+       
       </div>
     </nav>
   );
@@ -26,6 +41,5 @@ const mapStateToProps = (state) =>
   }
   
 }
-
 
 export default connect(mapStateToProps)(Navbar);
