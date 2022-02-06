@@ -9,7 +9,7 @@ import { useEffect } from "react";
 
 const TaskList = ({tasks}) => {
   
- 
+ console.log(typeof(tasks));
   return (
     <div className="task-list">
       {tasks && tasks.map(task => {
