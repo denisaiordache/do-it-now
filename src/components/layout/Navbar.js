@@ -18,7 +18,7 @@ const Navbar = () => {
   const [user, loading, error] = useAuthState(auth);
   useEffect(() => {
   if (loading) return;
-  if (!user) return history("/");
+  if (!user) return history("/welcome");
 }, [user, loading]);
 
   return (

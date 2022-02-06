@@ -31,7 +31,7 @@ const OnlineLinks = () => {
 
   useEffect(() => {
   if (loading) return;
-  if (!user) return history("/");
+  if (!user) return history("/welcome");
   fetchUsername();
 }, [user, loading]);
   return (
@@ -40,11 +40,11 @@ const OnlineLinks = () => {
         <NavLink to="/newtask">Create Task</NavLink>
       </li>
       <li>
-        <NavLink to="/" onClick={logout}>Log Out</NavLink>
+        <NavLink to="/welcome" onClick={logout}>Log Out</NavLink>
       </li>
       <li>
         <NavLink
-          to="/"
+          to="/welcome"
           className="btn-floating btn-large waves-effect waves-light teal lighten-3"
         >
           {initials}

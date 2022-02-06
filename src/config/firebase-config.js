@@ -53,6 +53,7 @@ const firebaseConfig = {
     }
   };
 
+ 
 
 export {db, auth,registerWithEmailAndPassword,logout,logInWithEmailAndPassword}
 

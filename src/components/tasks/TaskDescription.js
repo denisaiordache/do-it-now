@@ -1,9 +1,10 @@
 import React from "react";
 
+
 const TaskDescription = ({task}) => {
   return (
-    <div className="row">
-      <div className="col s4">
+    <div className="row" style={{'margin-top':10}}>
+      <div className="col s5" style={{"margin-left":450}}>
         <div className="card">
           <div className="card-image">
             <img src="/images/bulb.jpg" />
@@ -19,6 +20,7 @@ const TaskDescription = ({task}) => {
           </div>
         </div>
       </div>
+     
     </div>
   );
 };
